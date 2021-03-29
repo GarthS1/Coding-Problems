@@ -1,4 +1,5 @@
 #https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a/00000000006d1145
+# My solution didn't work
 
 # finds the cost of a given string
 def find_cost(cost_string):

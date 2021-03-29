@@ -1,4 +1,6 @@
 # problem can be found at https://ccpc21d1.kattis.com/problems/ccpc21.predictinggme
+# This solution will not work. I tried to sort the list to mazimize profit while the solution would be to keep more of a table fomrat of 
+# each day
 
 import sys
 

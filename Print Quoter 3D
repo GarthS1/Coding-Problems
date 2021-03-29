@@ -1,0 +1,85 @@
+# Problem at https://ccpc21d1.kattis.com/problems/ccpc21.printquoter3d
+
+
+import sys
+
+w, h, d = map(int, sys.stdin.readline().strip().split())
+
+front_view = []
+for i in range(h):
+    temp = []
+    inp = input()
+    for j in range(w):
+        if inp[j] == '.':
+            temp.append(False)
+        elif inp[j] == '#':
+            temp.append(True)
+    front_view.append(temp)
+
+right_view = []
+for i in range(h):
+    temp = []
+    inp = input()
+    for j in range(d):
+        if inp[j] == '.':
+            temp.append(False)
+        elif inp[j] == '#':
+            temp.append(True)
+    right_view.append(temp)
+
+top_view = []
+for i in range(d):
+    temp = []
+    inp = input()
+    for j in range(w):
+        if inp[j] == '.':
+            temp.append(False)
+        elif inp[j] == '#':
+            temp.append(True)
+    top_view.append(temp)
+
+#print(front_view)
+#print(right_view)
+#print(top_view)
+
+model = []
+for i in range(w):
+    temp = []
+    for j in range(h):
+        temp1 = []
+        for k in range(d):
+            temp1.append(True)
+        temp.append(temp1)
+    model.append(temp)
+
+#print(model)
+
+for i in range(w):
+    for j in range(h):
+        if not front_view[j][i]:
+            for k in range(d):
+                model[i][j][k] = False
+
+for j in range(h):
+    for k in range(d):
+        if not right_view[j][k]:
+            for i in range(w):
+                model[i][j][k] = False
+
+for k in range(d):
+    for i in range(w):
+        if not top_view[k][i]:
+            for j in range(h):
+                model[i][j][d-k-1] = False
+
+counter = 0
+for i in range(w):
+    for j in range(h):
+        for k in range(d):
+            if model[i][j][k]:
+                counter += 1
+
+if counter == 0:
+    print("invalid")
+else:
+    print(counter)

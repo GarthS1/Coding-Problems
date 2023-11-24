@@ -1,8 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-The way that my compression algorthim works is that it will first convert all bytes into binary form and record repetitions. 
+Compression algorithm used for a job interview question. 
+
+Example:
+Compressed Array: b'\x83\xf4\x84-\\\x82\x005\xb1u\x88\x93'
+Orginal Array: ['0x3', '0x74', '0x4', '0x4', '0x4', '0x35', '0x35', '0x64', '0x64', '0x64', '0x64', '0x0', '0x0', '0x0', '0x0', '0x0', '0x56', '0x45', '0x56', '0x56', '0x56', '0x9', '0x9', '0x9']
+Orginal size: 57
+Compressed size: 45
+
+The way that my compression algorithm works is that it will first convert all bytes into binary form and record repetitions. 
 Since the max size is 127, that means we need at least 7 bits to store the byte. After converting the first byte if the next byte is repeated it appends a 0 to signify repeated byte.  
-Otherwise, it will append a 1 to signify a new byte value and use 7 bits to record the next byte correpsonding value.
+Otherwise, it will append a 1 to signify a new byte value and use 7 bits to record the next byte corresponding value.
 """
 
 from sys import getsizeof
